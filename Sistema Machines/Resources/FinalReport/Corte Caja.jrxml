@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.9.0.final using JasperReports Library version 6.9.0-cb8f9004be492ccc537180b49c026951f4220bf3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Corte Caja" pageWidth="612" pageHeight="792" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="29" rightMargin="28" topMargin="0" bottomMargin="0" uuid="ced95029-b569-4027-895c-af2843a4e088">
+	<property name="com.jaspersoft.studio.data.sql.tables">
+		<![CDATA[Y29ydGUgQVMgLDEwMCwxNSxmNjk0ZTkzYy02MmNkLTRjZDYtYTdhNC1mOWFkODRjZTg0MzM7Y2Fq
+YSBBUyAsMTUsMTUsYTg5NWZjNDMtZjNjMy00M2NkLWIzYWUtZjFkNTliMWE4N2MyOw==]]>
+	</property>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Maquinas.xml"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="idCaja" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT id,
+	monto1,
+	fechaAbierto,
+	totaldevolucion1,
+	totalgastos
+FROM caja
+WHERE 
+	 id = $P{idCaja} ]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="caja"/>
+	</field>
+	<field name="monto1" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="monto1"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="caja"/>
+	</field>
+	<field name="fechaAbierto" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.label" value="fechaAbierto"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="caja"/>
+	</field>
+	<field name="totaldevolucion1" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="totaldevolucion1"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="caja"/>
+	</field>
+	<field name="totalgastos" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="totalgastos"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="caja"/>
+	</field>
+	<detail>
+		<band height="77">
+			<staticText>
+				<reportElement x="10" y="38" width="100" height="19" uuid="dcf657bf-d646-492f-a93c-28b78d7dedfa"/>
+				<textElement textAlignment="Justified" verticalAlignment="Bottom">
+					<font fontName="Decker" size="12"/>
+				</textElement>
+				<text><![CDATA[Fecha de corte:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="58" width="100" height="19" uuid="25df144c-4823-44be-b09a-55ccd52f227e"/>
+				<textElement textAlignment="Justified" verticalAlignment="Bottom">
+					<font fontName="Decker" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Monto inicial:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="280" y="13" width="122" height="19" uuid="7ce6115f-8db5-4b72-ae1a-750d344ccbbb"/>
+				<textElement textAlignment="Justified" verticalAlignment="Bottom">
+					<font fontName="Decker" size="12"/>
+				</textElement>
+				<text><![CDATA[Total de devoluciones:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="280" y="33" width="115" height="19" uuid="a1cf624f-2760-40e0-86a2-334649652e31"/>
+				<textElement textAlignment="Justified" verticalAlignment="Bottom">
+					<font fontName="Decker" size="12"/>
+				</textElement>
+				<text><![CDATA[Total de gastos:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="110" y="38" width="150" height="19" uuid="53b7dee5-c8d9-4803-a955-70d2d593065c"/>
+				<box>
+					<pen lineWidth="1.0" lineStyle="Dashed"/>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Decker" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("dd MMMM yyyy").format($F{fechaAbierto})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="110" y="58" width="150" height="19" forecolor="#009900" uuid="5010e3be-3d70-4616-bfb7-a3f08c45b8ee"/>
+				<box>
+					<pen lineWidth="1.0" lineStyle="Dashed"/>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Dashed" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Decker" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["$"+new DecimalFormat("###,###,###,###,###,###,###,##0.00").format($F{monto1})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="405" y="13" width="150" height="19" uuid="5753c367-5cd9-4caf-8a41-b0b6035b6358"/>
+				<box>
+					<pen lineWidth="1.0" lineStyle="Dashed"/>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Dashed" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Decker" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["$"+new DecimalFormat("###,###,###,###,###,###,###,##0.00").format($F{totaldevolucion1})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="405" y="33" width="150" height="19" uuid="c1e0b927-3ef4-4e69-8c95-58c1b57afe69"/>
+				<box>
+					<pen lineWidth="1.0" lineStyle="Dashed"/>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Dashed" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Decker" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["$"+new DecimalFormat("###,###,###,###,###,###,###,##0.00").format($F{totalgastos})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="280" y="58" width="115" height="19" uuid="1f05f38a-97c2-4a3c-aca5-4aff8866f21d"/>
+				<textElement textAlignment="Justified" verticalAlignment="Bottom">
+					<font fontName="Decker" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total de diferencia:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="405" y="58" width="150" height="19" forecolor="#CC0000" uuid="f7f70f6f-59a7-47fa-882e-973138f90207"/>
+				<box>
+					<pen lineWidth="1.0" lineStyle="Dashed"/>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Dashed" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Decker" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["$"+new DecimalFormat("###,###,###,###,###,###,###,##0.00").format(($F{totalgastos}+$F{totaldevolucion1}))]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="280" y="53" width="275" height="1" uuid="036a82fd-5e7a-4deb-91a5-c1ec7173eb0d"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="10" y="0" width="164" height="20" uuid="b641a12b-6a3f-4bbd-9e93-b93c893ce3f0"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Decker" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Corte de caja Monto $1:]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>

@@ -1,0 +1,14 @@
+Abrimos un navegador cualquiera y entramos a phpmyadmin (localhost/phpmyadmin).
+Seleccionamos la opción SQL que se encuentra en la parte superior.
+Ejecutamos el siguiente query:
+UPDATE mysql.user SET Password=PASSWORD('#Maquinas@') WHERE User='root';
+FLUSH PRIVILEGES;
+Ahora vamos al directorio en donde se instalo XAMPP y entramos a la carpeta phpmyadmin (Ejemplo C:\xampp\phpmyadmin)
+Abrimos el archivo config.inc.php
+Buscamos ['password']='' y escribimos el mismo password que usamos anteriormente y quedara asi:
+['password']='#Maquinas@'
+Guardamos cambios, reiniciamos XAMPP y Listo.
+https://drive.google.com/drive/folders/1z3H8IBnHhyfcbp5V9c2S2jYHzdt9iVB2?usp=sharing
+
+
+#Maquinas@3d

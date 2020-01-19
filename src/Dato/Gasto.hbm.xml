@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 18 ene. 2020 17:10:15 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Dato.Gasto" table="gasto" catalog="montezco_maquinas" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="caja" class="Dato.Caja" fetch="select">
+            <column name="caja" not-null="true" />
+        </many-to-one>
+        <many-to-one name="tipogasto" class="Dato.Tipogasto" fetch="select">
+            <column name="tipo" not-null="true" />
+        </many-to-one>
+        <property name="fecha" type="date">
+            <column name="fecha" length="10" not-null="true" />
+        </property>
+        <property name="gasto" type="double">
+            <column name="gasto" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="descripcion" type="string">
+            <column name="descripcion" length="100" />
+        </property>
+        <property name="status" type="boolean">
+            <column name="status" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
