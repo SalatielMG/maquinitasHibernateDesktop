@@ -17,7 +17,7 @@ public class ControlCaja {
         return c;
     }
     
-    public CajaOC getCajaOpen(){
+    public CajaOC getCajaOpen() {
        CajaOC caja = new CajaOC();
        String cadena = "select * from vistacajaopen;";
        ResultSet rs = Inicio.hmysql.consultaResulSetSQL(cadena);

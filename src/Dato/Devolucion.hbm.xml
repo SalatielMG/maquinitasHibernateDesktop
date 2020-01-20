@@ -14,7 +14,7 @@
         <property name="fecha" type="date">
             <column name="fecha" length="10" not-null="true" />
         </property>
-        <property name="tipo" type="boolean">
+        <property name="tipo" type="int">
             <column name="tipo" not-null="true" />
         </property>
         <property name="cantidad" type="int">

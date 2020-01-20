@@ -143,7 +143,10 @@ public class CorteCaja extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnSiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSiActionPerformed
-        Caja cja = Inicio.pC.AsignaCorte();
+        Caja cja = CtrlCaja.getCaja();
+        cja.setCorte(true);
+        cja.setStatus(true);
+        cja.setNota(notaCorte.getText());
         cja.setFechaCorte(Fecha.getDatoFecha());
         if (Inicio.hmysql.ejecutaTransaccion(cja, Caja.class, HMySQL.ACTUALIZAR)) {
             subir();

@@ -894,7 +894,7 @@ public class Inicio extends javax.swing.JFrame {
     private void BtnReporte1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnReporte1ActionPerformed
         if (indexModal == 1) {
             if (IDReportCaja != 0) {
-                new ControladorReporte(IDReportCaja,1);
+                new ControladorReporte(IDReportCaja, 1);
                 System.out.println("Valor del id Caja:= " + IDReportCaja);
             } else {
                 Inicio.v.Msj("¡ Porfavor selecciona un registro para poder realizar el reporte correspondiente !", Constant.TITULO_ERROR, Id);
@@ -909,7 +909,7 @@ public class Inicio extends javax.swing.JFrame {
     private void BtnReporte5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnReporte5ActionPerformed
         if (indexModal == 1) {
             if (IDReportCaja != 0) {
-                new ControladorReporte(IDReportCaja,5);
+                new ControladorReporte(IDReportCaja, 5);
                 System.out.println("Valor del id Caja:= " + IDReportCaja);
             } else {
                 Inicio.v.Msj("¡ Porfavor selecciona un registro para poder realizar el reporte correspondiente !", Constant.TITULO_ERROR, Id);

@@ -13,14 +13,14 @@ public class Devolucion  implements java.io.Serializable {
      private Integer id;
      private Caja caja;
      private Date fecha;
-     private boolean tipo;
+     private int tipo;
      private int cantidad;
      private boolean status;
 
     public Devolucion() {
     }
 
-    public Devolucion(Caja caja, Date fecha, boolean tipo, int cantidad, boolean status) {
+    public Devolucion(Caja caja, Date fecha, int tipo, int cantidad, boolean status) {
        this.caja = caja;
        this.fecha = fecha;
        this.tipo = tipo;
@@ -49,11 +49,11 @@ public class Devolucion  implements java.io.Serializable {
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
-    public boolean isTipo() {
+    public int isTipo() {
         return this.tipo;
     }
     
-    public void setTipo(boolean tipo) {
+    public void setTipo(int tipo) {
         this.tipo = tipo;
     }
     public int getCantidad() {

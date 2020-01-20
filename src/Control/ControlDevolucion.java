@@ -16,7 +16,7 @@ public class ControlDevolucion {
     private ControlCaja CtrlCaja = new ControlCaja();
     
     public void rellenaCombo(JComboBox cmb, JTextField casilla) {
-        Caja caja = CtrlCaja.getCajaOpen();
+        Caja caja = CtrlCaja.getCaja();
         cmb.removeAllItems();
         cmb.removeAll();
         cmb.addItem("Monto de $1.00");

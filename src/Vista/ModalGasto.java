@@ -120,7 +120,7 @@ public class ModalGasto extends javax.swing.JPanel {
         gasto.setDescripcion(casillaConcepto.getText().trim());
         gasto.setFecha(Fecha.getDatoFecha());
         gasto.setGasto(Double.parseDouble(casillaGasto.getText().trim()));
-        gasto.setCaja(CtrlCaja.getCajaOpen());
+        gasto.setCaja(CtrlCaja.getCaja());
         gasto.setStatus(true);
         if(Op == HMySQL.ELIMINAR)
             gasto.setStatus(false);

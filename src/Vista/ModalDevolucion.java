@@ -77,7 +77,7 @@ public class ModalDevolucion extends javax.swing.JPanel {
 
     private void Recupera() {
         this.casillaId.setText("" + devolucion.getId());
-        this.cmbTipo.setSelectedIndex((devolucion.isTipo())? 1: 0);
+        this.cmbTipo.setSelectedIndex((devolucion.isTipo() == 1)? 0: 1);
         this.Fecha.setDatoFecha(devolucion.getFecha());              
         this.casillaCantidadDevuelto.setText("" + devolucion.getCantidad());
     }
@@ -109,7 +109,7 @@ public class ModalDevolucion extends javax.swing.JPanel {
         devolucion.setCaja(CtrlCaja.getCajaOpen());
         devolucion.setCantidad(Integer.parseInt(casillaCantidadDevuelto.getText().trim()));
         devolucion.setFecha(Fecha.getDatoFecha());
-        devolucion.setTipo((cmbTipo.getSelectedIndex() == 0) ? false: true);
+        devolucion.setTipo((cmbTipo.getSelectedIndex() == 0) ? 1: 5);
         devolucion.setStatus(true);
         if(Op == HMySQL.ELIMINAR)
             devolucion.setStatus(false);

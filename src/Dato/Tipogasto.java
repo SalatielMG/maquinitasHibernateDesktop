@@ -67,7 +67,11 @@ public class Tipogasto  implements java.io.Serializable {
     public void setGastos(Set gastos) {
         this.gastos = gastos;
     }
-
+    
+    @Override
+    public String toString() {
+        return this.nombre;
+    }
 
 
 

@@ -39,17 +39,17 @@ public class ControladorReporte {
 
     }*/
 
-    private void verReporte(int idCaja,int tipo) {
+    private void verReporte(int idCaja, int tipo) {
         JasperReport report;
         JasperPrint re;
-        String archivo="D:\\Sistema Machines\\Resources\\FinalReport\\ReportePrincipal.jasper";
-        if(tipo==5)
-            archivo="D:\\Sistema Machines\\Resources\\FinalReport\\Monto 5M.jasper";
+        String archivo = "C:\\Sistema Machines\\Resources\\FinalReport\\ReportePrincipal.jasper";
+        if(tipo == 5)
+            archivo = "C:\\Sistema Machines\\Resources\\FinalReport\\Monto 5M.jasper";
         try {
             report = (JasperReport) JRLoader.loadObjectFromFile(archivo);
             Map<String,Object> parametros = new HashMap();
             parametros.put("cajaId", idCaja);
-            re = JasperFillManager.fillReport(report, parametros,Inicio.hmysql.getConexion()); //Muestra en una ventana externa el reporte, sin necesidad de programar
+            re = JasperFillManager.fillReport(report, parametros); //Muestra en una ventana externa el reporte, sin necesidad de programar
             JasperViewer view = new JasperViewer(re,false);
             view.setTitle("Reporte de caja "+idCaja);
             view.setVisible(true);

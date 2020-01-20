@@ -356,6 +356,8 @@ public class panelCaja extends javax.swing.JPanel {
                 if (op == JOptionPane.YES_OPTION) {
                     new CorteCaja(null, true, caja.getId());
                 }
+            } else {
+                new CorteCaja(null, true, caja.getId());
             }
                  
         } else {
