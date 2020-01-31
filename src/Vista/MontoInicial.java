@@ -33,7 +33,7 @@ public class MontoInicial extends javax.swing.JDialog {
     private void Recupera() {        
         caja = CtrlCaja.getCaja();
         //System.out.println(this.caja.contentCaja());
-        System.out.println(caja.toString());
+        //System.out.println(caja.toString());
         this.Titulo.setText("Editar Caja Núm: "+caja.getId());
         //this.Titulo.setName(""+caja.getId());
         this.Fecha.setDatoFecha(caja.getFechaAbierto());

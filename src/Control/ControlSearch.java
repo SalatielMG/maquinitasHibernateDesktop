@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import javax.swing.table.TableColumnModel;
@@ -24,7 +25,7 @@ public class ControlSearch {
     private int[] ancho = null;
     public void mostrarDatos(JTable Tabla, String nameVista) {
         String cadena = "select * from " + nameVista+" ORDER BY id DESC;";
-        System.out.println("Consulta:= " + cadena);
+        //System.out.println("Consulta:= " + cadena);
         ResultSet rs = (ResultSet) Inicio.hmysql.consultaResulSetSQL(cadena);
         DefaultTableModel dtm = DTM(Tabla);
         colocarDatos(rs, dtm);
@@ -33,7 +34,7 @@ public class ControlSearch {
     public void mostrarDatos(JTable Tabla, String nameTable, String columnTable, String type, String search) {
 
         String cadena = "Select * from " + nameTable + " where " + columnTable + " " + type + " " + search + ";";
-        System.out.println("Consulta:= " + cadena);
+        //System.out.println("Consulta:= " + cadena);
         ResultSet rs = (ResultSet) Inicio.hmysql.consultaResulSetSQL(cadena);
         try {
             if (!rs.next()) {
@@ -90,14 +91,14 @@ public class ControlSearch {
                 dtm.addRow(datos);
             }
         } catch (SQLException e) {
-            System.out.println("Ocurrio un error");
+            //System.out.println("Ocurrio un error");
         }
     }
     
     private DefaultTableModel DTM(JTable Tabla) {
         DefaultTableModel dtm = new DefaultTableModel() {
             @Override
-            public boolean isCellEditable(int row, int col) {
+            public boolean isCellEditable(int row, int col) {                
                 return false;
             }
         };
@@ -135,7 +136,11 @@ public class ControlSearch {
                 break;
         }
         for (int i = 0; i < header.length; i++) {
-            dtm.addColumn(header[i]);
+            if (Inicio.indexModal == 1 && i == 0) {
+                dtm.addColumn("Caja");
+            } else {
+                dtm.addColumn(header[i]);
+            }            
         }
         Tabla.getTableHeader().setReorderingAllowed(false);
         JTableHeader Theader = Tabla.getTableHeader();
@@ -146,9 +151,16 @@ public class ControlSearch {
         Tabla.setFont(new Font("Decker", Font.PLAIN, 18));
         TableColumnModel columnModel = Tabla.getColumnModel();
         for (int i = 0; i < column.length; i++) {
+            
             columnModel.getColumn(i).setPreferredWidth(ancho[i]);
         }
-        
+        if (Inicio.indexModal != 1) {
+            columnModel.getColumn(0).setPreferredWidth(0);
+            columnModel.getColumn(0).setMinWidth(0);
+            columnModel.getColumn(0).setMaxWidth(0);
+            columnModel.getColumn(0).setWidth(0);
+            columnModel.getColumn(0).setResizable(false);
+        }
         return dtm;
     }
     

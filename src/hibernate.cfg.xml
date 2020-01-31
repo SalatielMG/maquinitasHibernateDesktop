@@ -43,7 +43,7 @@ Contributor(s):
   <session-factory>
     <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-    <property name="hibernate.connection.url">jdbc:mysql://www.montezcode.com:3306/montezco_maquinas?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.url">jdbc:mysql://www.montezcode.com:3306/montezco_machine?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">montezco_salaMC</property>
     <property name="hibernate.connection.password">MQX?DiHw{ZcY</property>
     <property name="hibernate.enable_lazy_load_no_trans">true</property>

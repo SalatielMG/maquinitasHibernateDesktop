@@ -7,6 +7,7 @@ import Dato.Gasto;
 import Dato.Tipogasto;
 import Util.Constant;
 import Util.HMySQL;
+import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JTable;
@@ -57,21 +58,26 @@ public class ModalGasto extends javax.swing.JPanel {
                 //System.out.println("Esta es el Placeholder en el Inicio: "+Fecha.getPlaceholder());
                 //System.out.println("Esta es la fecha  en el Inicio: "+Fecha.getDatoFecha());
                 this.casillaId.setText("");
+                this.btnAceptar.setBackground(new Color(0,153,0));
                 Habilita(true);
                 break;
             case 2:
-                titulo = "Editar";
+                titulo = "Actualizar";  
+                this.btnAceptar.setBackground(new Color(0,0,204));
                 Habilita(true);
                 break;
             case 3:
                 titulo = "Eliminar";
+                this.btnAceptar.setBackground(new Color(204,0,0));
                 Habilita(false);
                 break;
             case 4:
                 titulo = "Consultar";
+                this.btnAceptar.setBackground(new Color(0,0,204));
                 Habilita(false);
                 break;
         }
+        this.btnAceptar.setText((Op !=4 ) ? titulo : "Aceptar" );
         this.Titulo.setText(titulo + " Gasto");
         this.casillaId.setEditable(false);
         this.cmbTipo.requestFocus();
@@ -79,16 +85,18 @@ public class ModalGasto extends javax.swing.JPanel {
 
     private void Recupera() {
         this.casillaId.setText("" + gasto.getId());
-       
-            this.cmbTipo.setSelectedIndex(Inicio.v.obtIndex(idTipos, gasto.getTipogasto().getId()));
-            this.Fecha.setDatoFecha(gasto.getFecha());
-            this.prueba.setText("" + gasto.getFecha().toString());
-        
+        this.cmbTipo.setSelectedIndex(Inicio.v.obtIndex(idTipos, gasto.getTipogasto().getId()));
+        this.Fecha.setDatoFecha(gasto.getFecha());
+        this.prueba.setText("" + gasto.getFecha().toString());        
         this.casillaConcepto.setText(gasto.getDescripcion());
         this.casillaGasto.setText("" + Inicio.v.decimalFormat(gasto.getGasto()));
     }
 
     private void Habilita(boolean bnd) {
+        if (this.Op == 1) {
+            this.casillaConcepto.setText("");
+            this.casillaGasto.setText("");
+        }
         this.cmbTipo.setEnabled(bnd);
         this.casillaConcepto.setEditable(bnd);
         this.Fecha.setEnabled(bnd);
@@ -100,7 +108,7 @@ public class ModalGasto extends javax.swing.JPanel {
             Inicio.v.Msj("Porfavor describa el Gasto", Constant.TITULO_ERROR_VALID, 2);
             casillaConcepto.requestFocus();
         } else if (Fecha.getDatoFecha() == null) {
-            System.out.println(Fecha.getDatoFecha());
+            //System.out.println(Fecha.getDatoFecha());
             Inicio.v.Msj("Porfavor escoje la fecha de Gasto", Constant.TITULO_ERROR_VALID, 2);
             Fecha.requestFocus();
         } else if ("".equals(casillaGasto.getText()) || !Inicio.v.validaDouble(casillaGasto.getText().trim())) {
@@ -171,13 +179,13 @@ public class ModalGasto extends javax.swing.JPanel {
         casillaId = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        Cancelar = new javax.swing.JButton();
-        Aceptar = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         cmbTipo = new javax.swing.JComboBox<>();
         Fecha = new rojeru_san.componentes.RSDateChooser();
         casillaGasto = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
+        btnAceptar = new rojerusan.RSMaterialButtonRectangle();
+        btnCancelar = new rojerusan.RSMaterialButtonRectangle();
 
         setName("ModalSalida"); // NOI18N
         setOpaque(false);
@@ -218,6 +226,8 @@ public class ModalGasto extends javax.swing.JPanel {
         casillaId.setBackground(new java.awt.Color(50, 50, 50));
         casillaId.setFont(new java.awt.Font("Decker", 0, 20)); // NOI18N
         casillaId.setForeground(new java.awt.Color(170, 170, 170));
+        casillaId.setVisible(false);
+        casillaId.setEnabled(false);
         casillaId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaIdActionPerformed(evt);
@@ -228,6 +238,7 @@ public class ModalGasto extends javax.swing.JPanel {
         jLabel5.setFont(new java.awt.Font("Decker", 0, 22)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Id:");
+        jLabel5.setVisible(false);
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
 
         jSeparator1.setBackground(new java.awt.Color(33, 33, 33));
@@ -235,38 +246,16 @@ public class ModalGasto extends javax.swing.JPanel {
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
         add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 80, -1, 162));
 
-        Cancelar.setBackground(new java.awt.Color(204, 0, 0));
-        Cancelar.setFont(new java.awt.Font("Decker", 0, 20)); // NOI18N
-        Cancelar.setText("Cancelar");
-        Cancelar.setFocusPainted(false);
-        Cancelar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CancelarActionPerformed(evt);
-            }
-        });
-        add(Cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 300, -1, 45));
-
-        Aceptar.setBackground(new java.awt.Color(0, 153, 0));
-        Aceptar.setFont(new java.awt.Font("Decker", 0, 20)); // NOI18N
-        Aceptar.setText("Aceptar");
-        Aceptar.setFocusPainted(false);
-        Aceptar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AceptarActionPerformed(evt);
-            }
-        });
-        add(Aceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 300, -1, 45));
-
         jLabel6.setFont(new java.awt.Font("Decker", 0, 22)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Tipo de gasto:");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 70, -1, -1));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 300, -1));
 
         cmbTipo.setBackground(new java.awt.Color(50, 50, 50));
         cmbTipo.setFont(new java.awt.Font("Decker", 0, 20)); // NOI18N
         cmbTipo.setForeground(new java.awt.Color(170, 170, 170));
         cmbTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        add(cmbTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 100, 220, 35));
+        add(cmbTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 380, 35));
 
         Fecha.setFont(new java.awt.Font("Decker", 0, 20)); // NOI18N
         Fecha.setFormatoFecha("yyyy-MM-dd");
@@ -287,21 +276,39 @@ public class ModalGasto extends javax.swing.JPanel {
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Gasto:");
         add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 170, -1, -1));
+
+        btnAceptar.setBackground(new java.awt.Color(0, 0, 204));
+        btnAceptar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 4, true));
+        btnAceptar.setText("Aceptar");
+        btnAceptar.setBorderPainted(false);
+        btnAceptar.setContentAreaFilled(false);
+        btnAceptar.setFont(new java.awt.Font("Decker", 1, 17)); // NOI18N
+        btnAceptar.setRippleColor(new java.awt.Color(0, 51, 0));
+        btnAceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAceptarActionPerformed(evt);
+            }
+        });
+        add(btnAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 270, 160, 70));
+
+        btnCancelar.setBackground(new java.awt.Color(153, 153, 153));
+        btnCancelar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 4, true));
+        btnCancelar.setText("Cancelar");
+        btnCancelar.setBorderPainted(false);
+        btnCancelar.setContentAreaFilled(false);
+        btnCancelar.setFont(new java.awt.Font("Decker", 1, 17)); // NOI18N
+        btnCancelar.setRippleColor(new java.awt.Color(51, 51, 51));
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
+        add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 270, 160, 70));
     }// </editor-fold>//GEN-END:initComponents
 
     private void casillaIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaIdActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_casillaIdActionPerformed
-
-    private void AceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AceptarActionPerformed
-        procesa();
-    }//GEN-LAST:event_AceptarActionPerformed
-
-    private void CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarActionPerformed
-        Inicio.Id = 0;
-        enableMenu();
-        movePanel();
-    }//GEN-LAST:event_CancelarActionPerformed
 
     private void casillaConceptoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_casillaConceptoKeyTyped
         Inicio.v.limCaracter(evt, casillaConcepto, "^[\\s\\S]", 100);
@@ -311,12 +318,22 @@ public class ModalGasto extends javax.swing.JPanel {
         Inicio.v.dosDecimales(evt, casillaGasto);
     }//GEN-LAST:event_casillaGastoKeyTyped
 
+    private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
+        procesa();
+    }//GEN-LAST:event_btnAceptarActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        Inicio.Id = 0;
+        enableMenu();
+        movePanel();
+    }//GEN-LAST:event_btnCancelarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Aceptar;
-    private javax.swing.JButton Cancelar;
     private rojeru_san.componentes.RSDateChooser Fecha;
     private javax.swing.JLabel Titulo;
+    private rojerusan.RSMaterialButtonRectangle btnAceptar;
+    private rojerusan.RSMaterialButtonRectangle btnCancelar;
     private javax.swing.JTextField casillaConcepto;
     private javax.swing.JTextField casillaGasto;
     private javax.swing.JTextField casillaId;

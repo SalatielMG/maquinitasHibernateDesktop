@@ -364,7 +364,7 @@ public class panelCaja extends javax.swing.JPanel {
             //Consulta a Caja
             enableMenu();
             movePanel();
-            System.out.println("Acabas de mover el panelTabla hacia arrriba");
+            //System.out.println("Acabas de mover el panelTabla hacia arrriba");
         }
     }//GEN-LAST:event_BtnCorteActionPerformed
 

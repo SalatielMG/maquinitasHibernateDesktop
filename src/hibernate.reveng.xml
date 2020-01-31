@@ -40,7 +40,7 @@ made subject to such option by the copyright holder.
 Contributor(s):
 -->
 <hibernate-reverse-engineering>
-  <schema-selection match-catalog="montezco_maquinas"/>
+  <schema-selection match-catalog="montezco_machine"/>
   <table-filter match-name="tipogasto"/>
   <table-filter match-name="gasto"/>
   <table-filter match-name="caja"/>

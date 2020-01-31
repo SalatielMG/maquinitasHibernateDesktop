@@ -29,7 +29,7 @@ public class Constant {
     
     public static final String[] columnTableCajas = {"id", "fechaAbierto", "monto1", "monto5", "fechaCorte"};
     public static final String[] columnTableVistaDevoluciones = {"id", "fecha", "tipo", "cantidad"};
-    public static final String[] columnTableVistaGastos = {"id", "fecha", "nombre", "descripciontipogasto", "gasto"};
+    public static final String[] columnTableVistaGastos = {"id", "fecha", "nombre", "descripcion", "gasto"};
     public static final String[] columnTableVistaEmpleados = {"id", "nombre", "apellidos", "domicilio", "telefono"};
     public static final String[] columnTableVistaLocales = {"id", "nombre", "domicilio", "descripcion"};
     public static final String[] columnTableVistaEntradas = {"id", "local", "fecha", "monto1", "monto5"};

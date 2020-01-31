@@ -87,7 +87,7 @@ public class Inicio extends javax.swing.JFrame {
             Operacion = 1;
             new MontoInicial(this, true, Operacion);
         }
-        
+        this.setTitle("Sistema Control E & G Maquinitas v2.0");
         this.setLocationRelativeTo(null);
         this.setVisible(true);
     }
@@ -427,7 +427,7 @@ public class Inicio extends javax.swing.JFrame {
         TituloEmpleado.setFont(new java.awt.Font("Decker", 0, 18)); // NOI18N
         TituloEmpleado.setForeground(new java.awt.Color(111, 174, 2));
         TituloEmpleado.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        TituloEmpleado.setText("Administración");
+        TituloEmpleado.setText("Información");
         JpControlPanel.add(TituloEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 100, 60));
 
         JbtnLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/icons8_Sign_Out_32px.png"))); // NOI18N
@@ -690,7 +690,7 @@ public class Inicio extends javax.swing.JFrame {
                     ListSelectionModel lsm = (ListSelectionModel) e.getSource();
                     if (!lsm.isSelectionEmpty()) {
                         IDReportCaja = Integer.parseInt(Tabla.getValueAt(Tabla.getSelectedRow(), 0).toString());
-                        System.out.println("IDCaja Reporte := " + IDReportCaja);
+                        //System.out.println("IDCaja Reporte := " + IDReportCaja);
                     }
                 }
 
@@ -726,7 +726,7 @@ public class Inicio extends javax.swing.JFrame {
         this.Monto1.setVisible(false);
         this.LabelTotal.setVisible(false);
         this.casillaTotal.setVisible(false);
-        TitulpPestaña.setText("Administración");
+        TitulpPestaña.setText("Información");
         this.JpTabla.setVisible(false);
         habilitarMenuOption(false);
         cmp = this.getContentPane().getComponents();
@@ -802,7 +802,7 @@ public class Inicio extends javax.swing.JFrame {
             if (bnd) {
                 int pos = isCmp(nameCmp[i]);
                 if (pos != -1) {
-                    System.out.println("Encontrado y emliminado:=" + pos + ":::" + nameCmp[i]);
+                    //System.out.println("Encontrado y emliminado:=" + pos + ":::" + nameCmp[i]);
 
                     switch (this.getContentPane().getComponent(pos).getName()) {
                         case "panelCaja":
@@ -838,12 +838,12 @@ public class Inicio extends javax.swing.JFrame {
     private int isCmp(String name) {
         int valor = -1;
         for (int i = 0; i < cmp.length; i++) {
-            System.out.println((i) + ":=" + cmp[i].getName());
+            //System.out.println((i) + ":=" + cmp[i].getName());
             if (cmp[i].getName() != null && cmp[i].getName().equals(name)) {
                 valor = i;
             }
         }
-        System.out.println("valor:=" + valor);
+        //System.out.println("valor:=" + valor);
         return valor;
     }
     private void MenuOptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuOptionActionPerformed
@@ -895,7 +895,7 @@ public class Inicio extends javax.swing.JFrame {
         if (indexModal == 1) {
             if (IDReportCaja != 0) {
                 new ControladorReporte(IDReportCaja, 1);
-                System.out.println("Valor del id Caja:= " + IDReportCaja);
+                //System.out.println("Valor del id Caja:= " + IDReportCaja);
             } else {
                 Inicio.v.Msj("¡ Porfavor selecciona un registro para poder realizar el reporte correspondiente !", Constant.TITULO_ERROR, Id);
             }
@@ -910,7 +910,7 @@ public class Inicio extends javax.swing.JFrame {
         if (indexModal == 1) {
             if (IDReportCaja != 0) {
                 new ControladorReporte(IDReportCaja, 5);
-                System.out.println("Valor del id Caja:= " + IDReportCaja);
+                //System.out.println("Valor del id Caja:= " + IDReportCaja);
             } else {
                 Inicio.v.Msj("¡ Porfavor selecciona un registro para poder realizar el reporte correspondiente !", Constant.TITULO_ERROR, Id);
             }
@@ -1038,7 +1038,7 @@ public class Inicio extends javax.swing.JFrame {
     private void movePanel(JPanel panel) {
 
         if (indexModal == 2) {
-            System.out.println("pD.getY():=" + pD.getY());
+            //System.out.println("pD.getY():=" + pD.getY());
             if (this.pD.getY() == 120) {
                 Animacion.bajar(120, 500, 1, 2, pD);
                 Animacion.subir(500, 120, 1, 2, panel);

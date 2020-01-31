@@ -39,7 +39,7 @@ public class panelHome extends javax.swing.JPanel {
         jLabel3.setFont(new java.awt.Font("Decker", 1, 36)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Sistema Control E & G Machines");
+        jLabel3.setText("Sistema Control E & G Maquinitas");
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 950, -1));
     }// </editor-fold>//GEN-END:initComponents
 

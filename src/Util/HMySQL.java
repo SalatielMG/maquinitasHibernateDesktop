@@ -66,7 +66,7 @@ public class HMySQL {
             bnd = true;
         } catch (Exception ex) {
             tx.rollback();
-            System.out.println("Ocurrio un error en la transaccion");
+            //System.out.println("Ocurrio un error en la transaccion");
             ex.printStackTrace();
         }
         return bnd;
@@ -106,7 +106,7 @@ public class HMySQL {
             lista = qry.list();
             //sesion.close();
         } catch (HibernateException e) {
-            System.out.println("Ocurrio un error en: " + hql);
+            //System.out.println("Ocurrio un error en: " + hql);
         }
         return lista;
     }
@@ -117,7 +117,7 @@ public class HMySQL {
         Query qry = sesion.createSQLQuery(sql); //El hql de hibernate
         List objetosBd = qry.list();
         //sesion.close();
-        System.out.println("objetosBd.get(0) " + objetosBd.get(0));
+        //System.out.println("objetosBd.get(0) " + objetosBd.get(0));
         return (objetosBd.isEmpty() ? null : objetosBd.get(0));
     }
 
@@ -130,7 +130,7 @@ public class HMySQL {
             lista = qry.list();
             //sesion.close();
         } catch (HibernateException e) {
-            System.out.println("Ocurrio un error en: " + sql);
+            //System.out.println("Ocurrio un error en: " + sql);
         }
         return lista;
     }
@@ -154,12 +154,12 @@ public class HMySQL {
             if (cnt.isClosed()){
                 this.crearConexion();
                 this.getConexion();
-                System.out.println("Reestableciendo la conexiona a la base de datos.");
+                //System.out.println("Reestableciendo la conexiona a la base de datos.");
             }
         } catch (SQLException ex) {
             this.crearConexion();
             this.getConexion();
-            System.out.println("Reestableciendo la conexiona a la base de datos.");
+            //System.out.println("Reestableciendo la conexiona a la base de datos.");
             //Logger.getLogger(HMySQL.class.getName()).log(Level.SEVERE, null, ex);
         }
         return cnt;

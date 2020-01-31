@@ -55,7 +55,7 @@ public class ControladorReporte {
             view.setVisible(true);
             
         } catch (Exception e) {
-            System.out.println("Error al consultar el reporte");
+            //System.out.println("Error al consultar el reporte");
             e.printStackTrace();
         }
     }

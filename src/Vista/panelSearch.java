@@ -170,12 +170,12 @@ public class panelSearch extends javax.swing.JPanel {
     private void movePanelSearch() {
         this.casillaSearch.requestFocus();
         if (this.getX() == 790) {
-            System.out.println("JpMenuSearch.getX():=" + this.getX());
+            //System.out.println("JpMenuSearch.getX():=" + this.getX());
             //this.cmbType.setVisible(true);
             RSAnimation.setMoverIzquierda(790, 360, 1, 5, this);
             this.cmbType.setVisible(true);
         } else {
-            System.out.println("JpMenuSearch.getX():=" + this.getX());
+            //System.out.println("JpMenuSearch.getX():=" + this.getX());
             //this.cmbType.setVisible(false);
             RSAnimation.setMoverDerecha(360, 790, 1, 5, this);
             
@@ -186,11 +186,11 @@ public class panelSearch extends javax.swing.JPanel {
     private void movePanelSearch1() {
         this.casillaSearch.requestFocus();
         if (this.getX() == 790) {
-            System.out.println("JpMenuSearch.getX():=" + this.getX());
+            //System.out.println("JpMenuSearch.getX():=" + this.getX());
             //this.cmbType.setVisible(true);
             RSAnimation.setMoverIzquierda(790, 790, 1, 5, this);
         } else {
-            System.out.println("JpMenuSearch.getX():=" + this.getX());
+            //System.out.println("JpMenuSearch.getX():=" + this.getX());
             //this.cmbType.setVisible(false);
             RSAnimation.setMoverDerecha(360, 360, 1, 5, this);
         }

@@ -27,7 +27,7 @@ public class Validacion {
     
     public boolean hayCajaAbierta(){
         List<Caja> cajasActivas = Inicio.hmysql.consultaSQLObjetos("select * from vistacajaopen");
-        System.out.println("cajasActivas" + cajasActivas.size());
+        //System.out.println("cajasActivas" + cajasActivas.size());
      
         return (cajasActivas.size() > 0) ? true: false;
     }
@@ -50,7 +50,7 @@ public class Validacion {
     }
     public Date getDatoFecha(String fecha) {
         if (fecha == null) return null;
-        System.out.println("Fecha: " + fecha);
+        //System.out.println("Fecha: " + fecha);
         Calendar fechaDate = Calendar.getInstance();
         Date f=fechaDate.getTime();
         String []date=fecha.split("-");
@@ -82,7 +82,7 @@ public class Validacion {
             }
         } catch (Exception e) {
             bnd=false;
-            System.out.println("Ocurrio un error");
+            //System.out.println("Ocurrio un error");
         }
         return bnd;
     }
@@ -93,7 +93,7 @@ public class Validacion {
             FM.next();
             fecha=FM.getString("FM");
         } catch (Exception e) {
-            System.out.println("Ocurrio un error");
+            //System.out.println("Ocurrio un error");
         }
         return fecha;
     }
@@ -101,9 +101,10 @@ public class Validacion {
         String FechaDesde=getFecha(datoFecha);
         ResultSet rEntrada, rGasto;
         String cadenaEntrada="Select verificaFechaDesdeEntradas('"+FechaDesde+"') as VFDE;";
-        System.out.println("Consult aEntrada:= "+cadenaEntrada);
+        //System.out.println("Consult aEntrada:= "+cadenaEntrada);
         rEntrada=(ResultSet) mysql.consultaObjeto(cadenaEntrada);
-        String cadenaGasto="Select verificaFechaDesdeSalidas('"+FechaDesde+"') as VFDS;";                System.out.println("Consult aGasto:= "+cadenaGasto);
+        String cadenaGasto="Select verificaFechaDesdeSalidas('"+FechaDesde+"') as VFDS;";                
+        //System.out.println("Consult aGasto:= "+cadenaGasto);
         rGasto=(ResultSet) mysql.consultaObjeto(cadenaGasto);
         try {
             rEntrada.next();
@@ -112,7 +113,7 @@ public class Validacion {
             if(rEntrada.getInt("VFDE")==1||rGasto.getInt("VFDS")==1)
                 return true;
         } catch (Exception e) {
-            System.out.println("Ocurrio un Error");
+            //System.out.println("Ocurrio un Error");
         }
         Msj("¡ No hay registros desde el : "+presentacionFecha(datoFecha)+" !\n"
                 + "Porfavor busca Registros desde la Fecha: "+presentacionFecha(getDatoFecha(obtFechaMinima())), Constant.TITULO_ERROR, 2);
